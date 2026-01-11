@@ -161,6 +161,10 @@ return {
         },
         separator(),
         {
+          require("opencode").statusline,
+        },
+        separator(),
+        {
           "fileformat",
           color = { fg = colors.yellow, bg = "none", gui = "bold" },
           symbols = {
