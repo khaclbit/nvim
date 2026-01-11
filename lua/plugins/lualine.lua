@@ -154,6 +154,13 @@ return {
       },
       lualine_x = {
         {
+          function()
+            return require("keylog").status()
+          end,
+          color = { fg = colors.red, bg = "none", gui = "bold" },
+        },
+        separator(),
+        {
           "fileformat",
           color = { fg = colors.yellow, bg = "none", gui = "bold" },
           symbols = {

@@ -1,0 +1,57 @@
+-- Standalone file mode
+-- local default_config = require("plugins.configs.lspconfig")
+-- local capabilities = default_config.capabilities
+-- local standalone_config = {
+--   root_dir = vim.fn.expand("%s:h"),
+--   capabilities = capabilities,
+--   cmd = { "rust-analyzer" },
+--   filetypes = { "rust" },
+--   init_options = { detachedFiles = { vim.api.nvim_buf_get_name(0) } },
+--   name = "rust-analyzer-standalone",
+-- }
+--
+-- ---@param list table list of items
+-- ---@param f function function that is called with each list's item and returns bool
+-- ---@return boolean `true` if any call of `f` returned `true`, `false` otherwise.
+-- local function any(list, f)
+--   for _, client in ipairs(list) do
+--     if f(client) then
+--       return true
+--     end
+--   end
+--   return false
+-- end
+--
+-- local timer = vim.loop.new_timer()
+-- timer:start(
+--   100, -- delay
+--   100, -- repeat interval
+--   vim.schedule_wrap(function()
+--     if timer:is_closing() then
+--       return
+--     end
+--     local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+--     local client_name = standalone_config.name
+--     if #clients == 0 then
+--       return
+--     end
+--     -- If standalone file mode was already enabled.
+--     if any(clients, function(client)
+--       return client.name == client_name
+--     end) then
+--       timer:close()
+--       return
+--     end
+--     for _, client in ipairs(clients) do
+--       if client.name == "rust-analyzer" then
+--         -- If client is not in the standalone file mode.
+--         if client.workspace_folders ~= nil then
+--           timer:close()
+--           return
+--         end
+--         client.stop()
+--       end
+--     end
+--     vim.lsp.start(standalone_config)
+--   end)
+-- )

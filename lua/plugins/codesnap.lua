@@ -1,0 +1,21 @@
+return {
+  --   "mistricky/codesnap.nvim",
+  --   tag = "v2.0.0-beta.17",
+  --   opts = {
+  --     snapshot_config = {
+  --       watermark = {
+  --         content = "Bojack with love",
+  --         font_family = "Pacifico",
+  --         color = "#ffffff",
+  --       },
+  --       code_config = {
+  --         breadcrumbs = {
+  --           enable = true,
+  --           separator = "/",
+  --           color = "#80848b",
+  --           font_family = "CaskaydiaCove Nerd Font",
+  --         },
+  --       },
+  --     },
+  --   },
+}

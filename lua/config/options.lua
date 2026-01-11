@@ -6,30 +6,46 @@ vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", ctermbg = "NONE" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE", ctermbg = "NONE" })
 
 -- extend LSP capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem = {
-  documentationFormat = { "markdown", "plaintext" },
-  snippetSupport = true,
-  preselectSupport = true,
-  insertReplaceSupport = true,
-  labelDetailsSupport = true,
-  deprecatedSupport = true,
-  commitCharactersSupport = true,
-  tagSupport = { valueSet = { 1 } },
-  resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  },
-}
-if vim.lsp.config then
-  print("Using built-in lspconfig")
-  vim.lsp.config("jdtls", { capabilities = capabilities })
-end
--- jdtls setup
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem = {
+--   documentationFormat = { "markdown", "plaintext" },
+--   snippetSupport = true,
+--   preselectSupport = true,
+--   insertReplaceSupport = true,
+--   labelDetailsSupport = true,
+--   deprecatedSupport = true,
+--   commitCharactersSupport = true,
+--   tagSupport = { valueSet = { 1 } },
+--   resolveSupport = {
+--     properties = {
+--       "documentation",
+--       "detail",
+--       "additionalTextEdits",
+--     },
+--   },
+-- }
+-- if vim.lsp.config then
+--   print("Using built-in lspconfig")
+--   vim.lsp.config("jdtls", { capabilities = capabilities })
+-- end
+-- -- jdtls setup
+-- local home = os.getenv("HOME")
 -- require("lazyvim.plugins.extras.lang.java").setup = {
---   capabilities = capabilities,
+--   cmd = {
+--     "java",
+--     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+--     "-Dosgi.bundles.defaultStartLevel=4",
+--     "-Declipse.product=org.eclipse.jdt.ls.core.product",
+--     "-Dlog.protocol=true",
+--     "-Dlog.level=ALL",
+--     "-Xms1g",
+--     "-Xmx4g", -- 💡 Increase heap size here (try 4G or more)
+--     "-jar",
+--     home .. "/.local/share/eclipse.jdt.ls/plugins/org.eclipse.equinox.launcher_*.jar",
+--     "-configuration",
+--     home .. "/.local/share/eclipse.jdt.ls/config_linux",
+--     "-data",
+--     home .. "/.cache/jdtls/workspace",
+--   },
 --   filetypes = { "java" },
 -- }
