@@ -7,6 +7,7 @@ return {
     vim.g.instant_username = "your-username"
     require("live-share").setup({
       -- Add your configuration here
+      username = "bojackduy",
     })
   end,
 }

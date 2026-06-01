@@ -7,4 +7,7 @@ return {
       table.insert(opts.ensure_installed, "http")
     end,
   },
+  config = function()
+    require("telescope").load_extension("rest")
+  end,
 }
